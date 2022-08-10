@@ -7,13 +7,12 @@ import { PaisService } from '../../services/pais.service';
 @Component({
   selector: 'app-ver-pais',
   templateUrl: './ver-pais.component.html',
-  styleUrls: ['./ver-pais.component.css']
+   styleUrls: ['./ver-pais.component.css'],
 })
 export class VerPaisComponent implements OnInit {
-
   termino: string = '';
   isError: boolean = false;
-  pais: Country[] = []
+   pais: Country[] = [];
   idiomas: string[] = [];
 
   constructor(
@@ -21,16 +20,15 @@ export class VerPaisComponent implements OnInit {
     private paisService: PaisService
   ) { }
 
-  ngOnInit(): void {
-
-    // ? refactor
+   ngOnInit(): void {
+    // * método para sugerencia de búsqueda mientras se escribe
     this.activateRoute.params
       .pipe(
         // obtenemos el id del país desde la url(en routing se le puso "id")
         switchMap(({ id }) => this.paisService.verPaisPorId(id)),
         tap(console.log)
       )
-      .subscribe({
+       .subscribe({ 
         next: (resp) => {
           this.pais = resp;
           const idiomas = Object.values(this.pais[0].languages);
@@ -41,8 +39,8 @@ export class VerPaisComponent implements OnInit {
           this.isError = true;
           this.pais = [];
           this.idiomas = [];
-        }
-      })
+          },
+       });
 
     // ? método sin refactor
     // this.activateRoute.params.subscribe(params => {
@@ -56,6 +54,5 @@ export class VerPaisComponent implements OnInit {
     //       error: (err) => { }
     //     })
     // })
-  }
-
+   }
 }
