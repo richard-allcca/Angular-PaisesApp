@@ -3,42 +3,43 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Country } from '../interfaces/pais.interface';
 
-
 @Injectable({
-   providedIn: 'root',
+  providedIn: 'root',
 })
 export class PaisService {
+  private apiUrl: string = 'https://restcountries.com/v3.1';
 
-   private apiUrl: string = 'https://restcountries.com/v3.1';
-
-   get httParams() {
-      return new HttpParams()
-         .set('fields', 'name,capital,region,population,flags,cca2')
-   }
-
-   constructor(private http: HttpClient) { }
-
-   buscarPais(termino: string): Observable<Country[]> {
-    const url = `${this.apiUrl}/name/${termino}`;
-
-      return this.http.get<Country[]>(url, { params: this.httParams });
+  // Crea los params que obtiene solo cosas lo necesario de la petición
+  get httParams() {
+    return new HttpParams().set(
+      'fields',
+      'name,capital,region,population,flags,cca2'
+    );
   }
 
-   buscarCapital(termino: string): Observable<Country[]> {
-      const url = `${this.apiUrl}/capital/${termino}`;
+  constructor(private http: HttpClient) {}
 
-      return this.http.get<Country[]>(url, { params: this.httParams });
-   }
+  buscarPais(termino: string): Observable<Country[]> {
+    const url = `${this.apiUrl}/name/${termino}`;
 
-   verPaisPorId(id: string): Observable<Country[]> {
-      const url = `${this.apiUrl}/alpha/${id}`;
+    return this.http.get<Country[]>(url, { params: this.httParams });
+  }
 
-      return this.http.get<Country[]>(url);
-   }
+  buscarCapital(termino: string): Observable<Country[]> {
+    const url = `${this.apiUrl}/capital/${termino}`;
 
-   buscarRegion(termino: string): Observable<Country[]> {
-      const url = `${this.apiUrl}/region/${termino}`;
+    return this.http.get<Country[]>(url, { params: this.httParams });
+  }
 
-      return this.http.get<Country[]>(`${url}`, { params: this.httParams });
-   }
+  verPaisPorId(id: string): Observable<Country[]> {
+    const url = `${this.apiUrl}/alpha/${id}`;
+
+    return this.http.get<Country[]>(url);
+  }
+
+  buscarRegion(termino: string): Observable<Country[]> {
+    const url = `${this.apiUrl}/region/${termino}`;
+
+    return this.http.get<Country[]>(`${url}`, { params: this.httParams });
+  }
 }

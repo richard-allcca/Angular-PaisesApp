@@ -1,6 +1,13 @@
 import { Component, EventEmitter, Output, OnInit, Input } from '@angular/core';
 import { debounceTime, Subject } from 'rxjs';
 
+// NOTE - Input and teclaPresionada 114
+// El valor del input es capturado por el ngModel
+// El .next() esta enlazado al debounce que recibe el valor
+// El .subscribe() de 'debounce' recibe el valor de .next()
+// El .pipe() usa el 'debounceTime' para retrasar el subscribe()
+// Finalmente el onDebounce.emit emite el valor
+
 @Component({
   selector: 'app-pais-input',
   templateUrl: './pais-input.component.html',
@@ -8,13 +15,12 @@ import { debounceTime, Subject } from 'rxjs';
 })
 export class PaisInputComponent implements OnInit {
 
-  termino: string = "";
-
   @Input() placeholder: string = "";
-
+  
   @Output() onTermino: EventEmitter<string> = new EventEmitter();
   @Output() onDebounce: EventEmitter<string> = new EventEmitter();
-
+  
+  termino: string = "";
   debounce: Subject<string> = new Subject();
 
   constructor() { }
@@ -32,10 +38,10 @@ export class PaisInputComponent implements OnInit {
   buscar() {
     this.onTermino.emit(this.termino);
   }
-
+  
   teclaPresionada() {
-    // ? el valor del input es capturado por el ngModel para usarlo aquí
     this.debounce.next(this.termino);
   }
-
+  
 }
+

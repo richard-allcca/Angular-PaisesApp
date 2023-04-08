@@ -41,13 +41,16 @@ export class PorPaisComponent {
 
     this.isError = false;
     // console.log(termino)
-    // this.paisService.buscarPais(termino)
-    //   .subscribe({
-    //     next: (resp) => {
-    //       this.paises = resp;
-    //       console.log(this.paises);
-    //     }
-    //   })
+    this.paisService.buscarPais(termino)
+      .subscribe({
+        next: (resp) => {
+          this.paises = resp.splice(0,5);
+          console.log(this.paises);
+        },
+        error: (err)=>{
+          console.log(err);
+        }
+      })
   }
 
 }

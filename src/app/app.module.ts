@@ -14,9 +14,9 @@ import { AppRoutingModule } from './app-routing.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     PaisModule,
     SharedModule,
-    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -7,28 +7,31 @@ import { PaisService } from '../../services/pais.service';
 @Component({
   selector: 'app-ver-pais',
   templateUrl: './ver-pais.component.html',
-   styleUrls: ['./ver-pais.component.css'],
+  styleUrls: ['./ver-pais.component.css'],
 })
 export class VerPaisComponent implements OnInit {
   termino: string = '';
   isError: boolean = false;
-   pais: Country[] = [];
+  pais: Country[] = [];
   idiomas: string[] = [];
 
   constructor(
     private activateRoute: ActivatedRoute,
     private paisService: PaisService
-  ) { }
+  ) {}
 
-   ngOnInit(): void {
-    // * método para sugerencia de búsqueda mientras se escribe
+  ngOnInit(): void {
+    // Método para sugerencia de búsqueda mientras se escribe
     this.activateRoute.params
       .pipe(
-        // obtenemos el id del país desde la url(en routing se le puso "id")
+        // obtenemos el id de la url(en routing se le puso "id")
+        // switchMap cambia un Observable 'params' por otro 'paisService'
+        // switchMap((param) => this.paisService.verPaisPorId(param.id)),
         switchMap(({ id }) => this.paisService.verPaisPorId(id)),
+        // tap imprime en consola la respuesta
         tap(console.log)
       )
-       .subscribe({ 
+      .subscribe({
         next: (resp) => {
           this.pais = resp;
           const idiomas = Object.values(this.pais[0].languages);
@@ -39,10 +42,10 @@ export class VerPaisComponent implements OnInit {
           this.isError = true;
           this.pais = [];
           this.idiomas = [];
-          },
-       });
+        },
+      });
 
-    // ? método sin refactor
+    // Método sin refactor
     // this.activateRoute.params.subscribe(params => {
     //   const { id } = params;
     //   this.paisService.verPaisPorId(id)
@@ -54,5 +57,5 @@ export class VerPaisComponent implements OnInit {
     //       error: (err) => { }
     //     })
     // })
-   }
+  }
 }
