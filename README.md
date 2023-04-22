@@ -3,6 +3,32 @@
 Aplicación para buscar países
 La usada API solo acepta busqueda de paises con el nombre en ingles
 
+## Temas de ese proyecto
+
+- Rutas
+
+- RouterLink y RouterLinkActive
+
+- Componentes especializados
+
+- DebounceTime
+
+- Inputs
+
+- SwitchMaps
+
+- Consumo de APIs
+
+- Tipado de datos
+
+- Menú de aplicación
+
+- Persistencia de Datos el localstorage
+
+- Persistencia de data en peticioens
+
+## Levantar proyecto
+
 Levanta la app en local con
     npm run start
 

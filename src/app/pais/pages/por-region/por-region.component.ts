@@ -1,18 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { PaisService } from '../../services/pais.service';
 import { Country } from '../../interfaces/pais.interface';
+import { Region } from '../../interfaces/region-type';
 
 @Component({
   selector: 'app-por-region',
   templateUrl: './por-region.component.html',
   styleUrls: ['./por-region.component.css'],
 })
-export class PorRegionComponent {
-  regiones: string[] = ['america', 'africa', 'asia', 'europe', 'oceania'];
+export class PorRegionComponent implements OnInit {
+  regiones: Region[] = ['America', 'Africa', 'Asia', 'Europe', 'Oceania'];
   regionActiva: string = '';
   paises: Country[] = [];
 
-  constructor(private paisService: PaisService) {}
+  constructor(
+    private paisService: PaisService) {}
 
   // Método sin uso para clases condicional
   getClaseCss(region: string): string {
@@ -21,8 +23,12 @@ export class PorRegionComponent {
       : 'btn btn-outline-primary';
   }
 
+  ngOnInit():void{
+    this.paises = this.paisService.cacheStore.byRegion.countries
+  }
+
   // Método para listar paises de region selecionada
-  activarRegion(region: string) {
+  activarRegion(region: Region) {
     // valida opcion seleccionada
     if (region === this.regionActiva) return;
 

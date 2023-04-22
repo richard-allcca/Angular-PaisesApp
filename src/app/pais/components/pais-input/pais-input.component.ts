@@ -16,16 +16,20 @@ import { debounceTime, Subject } from 'rxjs';
 export class PaisInputComponent implements OnInit {
 
   @Input() placeholder: string = "";
-  
+  @Input() term: string = '';
+  @Input() initialValue: string = '';
+
   @Output() onTermino: EventEmitter<string> = new EventEmitter();
   @Output() onDebounce: EventEmitter<string> = new EventEmitter();
-  
+
   termino: string = "";
   debounce: Subject<string> = new Subject();
 
   constructor() { }
 
   ngOnInit(): void {
+    this.termino = this.term || this.initialValue;
+
     this.debounce
       .pipe(
         debounceTime(500)
@@ -38,10 +42,10 @@ export class PaisInputComponent implements OnInit {
   buscar() {
     this.onTermino.emit(this.termino);
   }
-  
+
   teclaPresionada() {
     this.debounce.next(this.termino);
   }
-  
+
 }
 
