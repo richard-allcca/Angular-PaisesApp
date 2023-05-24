@@ -1,0 +1,64 @@
+<h2>Países</h2>
+<hr />
+
+<!-- El 1° routerLink no tiene ruta por el uso de routerLinkActiveOptions para que de inicio este marcado el primer boton de home
+-->
+
+<ul class="list-group">
+  <li
+    routerLink=""
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }"
+    class="list-group-item"
+  >
+    Home page
+  </li>
+
+  <li
+    routerLink="about"
+    routerLinkActive="active"
+    class="list-group-item"
+    >
+    About page
+  </li>
+
+  <li
+    routerLink="contact"
+    routerLinkActive="active"
+    class="list-group-item"
+    >
+    Contact page
+  </li>
+
+  <li
+    routerLink="countries/by-capital"
+    routerLinkActive="active"
+    class="list-group-item"
+    >
+    Por capital
+  </li>
+
+  <li
+    routerLink="countries/by-country"
+    routerLinkActive="active"
+    class="list-group-item"
+    >
+    Por pais
+  </li>
+
+  <li
+    routerLink="countries/by-region"
+    routerLinkActive="active"
+    class="list-group-item"
+    >
+    Por region
+  </li>
+
+  <!-- <li
+    routerLink="by/"
+    routerLinkActive="active"
+    class="list-group-item"
+    >
+    Por id
+  </li> -->
+</ul>
