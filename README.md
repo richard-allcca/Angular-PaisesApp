@@ -1,11 +1,13 @@
 # Países App
 
 Aplicación para buscar países
-La usada API solo acepta busqueda de paises con el nombre completo o parte del nombre en ingles
+
+La API solo acepta busqueda de paises con el nombre completo o parte del nombre en ingles
 
 ## Vista Online
 
 <!-- REVIEW - PENDIENTE -->
+**PENDIENTE ⌚**
 
 ## Vista previa
 
@@ -35,25 +37,39 @@ La usada API solo acepta busqueda de paises con el nombre completo o parte del n
 
 - Persistencia de data en peticioens
 
-## Levantar proyecto
+## Levantar proyecto en local
 
-Levanta la app en local con
+Paso 1 Instala el cli de forma local si no tienes la versión de **CLI** del proyecto
+
+    npm install -D @angular/cli
+
+Paso 2 Levanta la app en local con
+
     npm run start
 
-Se utilizo los conceptos básicos de angular:
-    `Módulos`, `Servicios`, `Interfaces`
+Opción 2 crea y ejecuta el comando script
 
-Directivas como:
-    `ngFor`, `ngIf`, `ngIf else`,
+    "scripts": {
+      "ng:serve": "ng serve",
+    }
 
-Concepto de flujo de datos
-    `two data binding`
+Opción 3 crea y ejecuta un script apuntado a node_modules
 
-Decoradores como:
-    `@Input`, `@Output`, `@viewChild`
+    "scripts": {
+      "ng:serve": "./node_modules/.bin/ng serve",
+    }
 
-Eventos con:
-    `(onclick)`, `(ngSubmit)`, `(input)`...
+## Contenido
+
+Se aplicaron los conceptos como: `Módulos`, `Servicios`, `Interfaces`
+
+Directivas: `ngFor`, `ngIf`, `ngIf else`,
+
+Concepto de flujo de datos: `two data binding`
+
+Decoradores: `@Input`, `@Output`, `@viewChild`
+
+Eventos: `(onclick)`, `(ngSubmit)`, `(input)`...
 
 ## Enlaces
 
