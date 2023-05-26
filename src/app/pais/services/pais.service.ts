@@ -44,6 +44,10 @@ export class PaisService {
     return this.http.get<Country[]>(url);
   }
 
+  // NOTE
+  // 1° tap => salva le resp en cacheStore
+  // 2° tap => ejecuta el método salva el contenido de cacheStore en el ls
+
   buscarPais(term: string): Observable<Country[]> {
     const url = `${this.apiUrl}/name/${term}`;
 

@@ -1,1 +1,20 @@
-<h1>by region page</h1>
+<h2>Por Region</h2>
+<hr>
+
+<div class="row">
+  <div class="col">
+    <!-- Searcbox -->
+    <shared-search-box
+      (onValue)="searchByRegion($event)"
+      placeholder="Buscar por capital"
+      >
+    </shared-search-box>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <hr>
+    <country-table [countries]="countries" ></country-table>
+  </div>
+</div>

@@ -1,15 +1,31 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { CountriesService } from '../../services/countries.service';
+import { Country } from '../../interfaces/country.interface';
 
 @Component({
   selector: 'by-region-page',
   templateUrl: './by-region-page.component.html',
   styleUrls: ['./by-region-page.component.css']
 })
-export class ByRegionPageComponent implements OnInit {
+export class ByRegionPageComponent {
 
-  constructor() { }
+  public countries: Country[] = [];
 
-  ngOnInit(): void {
+  constructor(private countriesService: CountriesService) { }
+
+  searchByRegion(term: string) {
+    this.countriesService.searchRegion(term)
+    .subscribe({
+      next: (resp)=>{
+        this.countries = resp
+      },
+      error: (error)=>{
+        throw new Error('Fallo la petición')
+      },
+      complete: ()=>{
+        console.log('completado');
+      }
+    })
   }
 
 }

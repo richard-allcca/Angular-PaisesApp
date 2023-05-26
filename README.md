@@ -1,7 +1,15 @@
 # Países App
 
 Aplicación para buscar países
-La usada API solo acepta busqueda de paises con el nombre en ingles
+La usada API solo acepta busqueda de paises con el nombre completo o parte del nombre en ingles
+
+## Vista Online
+
+<!-- REVIEW - PENDIENTE -->
+
+## Vista previa
+
+![Vista Online](./src/assets/vista-previa.png)
 
 ## Temas de ese proyecto
 
@@ -51,3 +59,16 @@ Eventos con:
 
 - [Api Country](https://restcountries.com/)
 - [Animate css](https://animate.style/)
+
+## Notas
+
+- **@input** recibe datos del padre, lo envia con corchetes `[nameProp]`
+
+      @Input() placeholder: string = "";
+
+- **@output** envia datos al padre
+
+      @Output() onValue: EventEmitter<string> = new EventEmitter();
+      (onValue)="nameEventFatherReceptor($event)"
+
+- **Propiedades dinamicas** Una propiedad con `corchetes` permite que las comillas reciban variables o funciones del **.ts**

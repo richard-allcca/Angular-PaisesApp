@@ -6,11 +6,12 @@ import { AboutPageComponent } from './shared/pages/about-page/about-page.compone
 import { ContactPageComponent } from './shared/pages/contact-page/contact-page.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    component: HomePageComponent,
-    pathMatch: 'full',
-  },
+  // comentado para que tome el path '**'
+  // {
+  //   path: '',
+  //   component: HomePageComponent,
+  //   pathMatch: 'full',
+  // },
   {
     path: 'about',
     component: AboutPageComponent,
@@ -25,12 +26,12 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: '',
+    redirectTo: 'countries',
   },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+exports: [RouterModule],
 })
 export class AppRoutingModule { }

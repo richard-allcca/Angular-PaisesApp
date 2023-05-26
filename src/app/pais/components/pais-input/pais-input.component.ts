@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Output, OnInit, Input } from '@angular/core';
 import { debounceTime, Subject } from 'rxjs';
 
-// NOTE - Input and teclaPresionada 114
+// NOTE - Debounce
 // El valor del input es capturado por el ngModel
 // El .next() esta enlazado al debounce que recibe el valor
 // El .subscribe() de 'debounce' recibe el valor de .next()

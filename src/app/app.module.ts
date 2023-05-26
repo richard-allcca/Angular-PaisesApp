@@ -15,10 +15,10 @@ import { CountriesModule } from './countries/countries.module';
   imports: [
     AppRoutingModule,
     BrowserModule,
+    CountriesModule,
     HttpClientModule,
     PaisModule,
     SharedModule,
-    CountriesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
