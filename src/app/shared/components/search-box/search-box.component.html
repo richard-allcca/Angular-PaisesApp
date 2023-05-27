@@ -7,6 +7,7 @@
   [placeholder]="placeholder"
   (keyup)="onKeyPress(inputRef.value)"
   #inputRef
+  [value]="initialValue"
 />
 
 <!-- Sin debounce  keyup.enter al presionar enter -->
