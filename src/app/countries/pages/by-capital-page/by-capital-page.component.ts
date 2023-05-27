@@ -10,23 +10,26 @@ import { Country } from '../../interfaces/country.interface';
 export class ByCapitalPageComponent {
 
   public countries: Country[] = [];
+  public isLoading: boolean = false;
 
-  constructor( private countriesService: CountriesService ) { }
+  constructor(private countriesService: CountriesService) { }
 
-  searchByCapital(term: string){
+  searchByCapital(term: string) {
+    this.isLoading = true;
 
     this.countriesService.searchCapital(term)
-    .subscribe({
-      next: (resp)=>{
-        this.countries = resp
-      },
-      error: (error)=>{
-        throw new Error('Fallo la petición')
-      },
-      complete: ()=>{
-        console.log('completado');
-      }
-    })
+      .subscribe({
+        next: (resp) => {
+          this.isLoading = false;
+          this.countries = resp;
+        },
+        error: (error) => {
+          throw new Error('Fallo la petición');
+        },
+        complete: () => {
+          console.log('completado');
+        }
+      });
   }
 
 }

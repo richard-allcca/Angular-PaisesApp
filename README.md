@@ -7,6 +7,7 @@ La API solo acepta busqueda de paises con el nombre completo o parte del nombre 
 ## Vista Online
 
 <!-- REVIEW - PENDIENTE -->
+
 **PENDIENTE ⌚**
 
 ## Temas de ese proyecto
@@ -16,8 +17,6 @@ La API solo acepta busqueda de paises con el nombre completo o parte del nombre 
 - RouterLink y RouterLinkActive
 
 - Componentes especializados
-
-- DebounceTime
 
 - Inputs
 
@@ -29,9 +28,21 @@ La API solo acepta busqueda de paises con el nombre completo o parte del nombre 
 
 - Menú de aplicación
 
+- ngClass y diferentes formas de manipular clases
+
+- CSS condicionales
+
+- Optimizaciones a peticiones HTTP (Service)
+
+- Debounce manual mediante RxJs
+
 - Persistencia de Datos el localstorage
 
 - Persistencia de data en peticioens
+
+- Ideas de Store
+
+- Re-utilización de componentes
 
 ## Levantar proyecto en local
 

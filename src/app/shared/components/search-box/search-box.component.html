@@ -1,8 +1,21 @@
+<!-- Debounce - keyup cada tecla presionada -->
 
 <input
+  aria-label="input"
   type="text"
   class="form-control"
   [placeholder]="placeholder"
-  (keyup.enter)="emitValue(inputRef.value)"
+  (keyup)="onKeyPress(inputRef.value)"
   #inputRef
 />
+
+<!-- Sin debounce  keyup.enter al presionar enter -->
+
+<!-- <input
+aria-label="input"
+type="text"
+class="form-control"
+[placeholder]="placeholder"
+(keyup.enter)="emitValue(inputRef.value)"
+  #inputRef
+/> -->
