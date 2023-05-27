@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { PaisModule } from './pais/pais.module';
 import { SharedModule } from './shared/shared.module';
 import { AppRoutingModule } from './app-routing.module';
 import { CountriesModule } from './countries/countries.module';
@@ -17,7 +16,6 @@ import { CountriesModule } from './countries/countries.module';
     BrowserModule,
     CountriesModule,
     HttpClientModule,
-    PaisModule,
     SharedModule,
   ],
   providers: [],

@@ -44,7 +44,7 @@ export class PaisService {
     return this.http.get<Country[]>(url);
   }
 
-  // NOTE
+  // NOTE - los taps ejecutan procesos como similar los middlewere
   // 1° tap => salva le resp en cacheStore
   // 2° tap => ejecuta el método salva el contenido de cacheStore en el ls
 

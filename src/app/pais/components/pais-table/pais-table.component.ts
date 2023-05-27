@@ -1,6 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Country } from '../../interfaces/pais.interface';
-import { PaisService } from '../../services/pais.service';
 
 @Component({
   selector: 'app-pais-table',
@@ -10,7 +9,5 @@ import { PaisService } from '../../services/pais.service';
 export class PaisTableComponent{
 
   @Input() paisesTable: Country[] = [];
-
-  constructor(private paisesService: PaisService ) { }
 
 }

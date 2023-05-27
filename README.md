@@ -9,10 +9,6 @@ La API solo acepta busqueda de paises con el nombre completo o parte del nombre 
 <!-- REVIEW - PENDIENTE -->
 **PENDIENTE ⌚**
 
-## Vista previa
-
-![Vista Online](./src/assets/vista-previa.png)
-
 ## Temas de ese proyecto
 
 - Rutas
@@ -88,3 +84,19 @@ Eventos: `(onclick)`, `(ngSubmit)`, `(input)`...
       (onValue)="nameEventFatherReceptor($event)"
 
 - **Propiedades dinamicas** Una propiedad con `corchetes` permite que las comillas reciban variables o funciones del **.ts**
+
+- **tap()** Son similares a los middlewere ejecutan porcesos con la data de una patición
+
+      tap((resp) => console.log(resp))
+      tap(console.log)
+
+- **switchMap** Cambia un Observable por otro Oservable. CountryPageComponent.ts
+
+      switchMap((param) => this.paisService.verPaisPorId(param.id)),
+      switchMap(({ id }) => this.paisService.verPaisPorId(id)),
+
+## Vista previa
+
+![Vista Previa Listado](./src/assets/vista-previa.png)
+
+![Vista Previa individual](./src/assets/country-individual.png)

@@ -19,11 +19,15 @@
       <tr *ngFor="let country of countries; let i = index" >
         <td>{{i + 1}}</td>
         <td>{{country.flag}}</td>
-        <td><img src={{country.flags.svg}} alt={{country.name.common}} class="flag-svg" ></td>
+        <td>
+          <img src={{country.flags.svg}} alt={{country.name.common}} class="flag-svg" >
+        </td>
         <td>{{country.name.common}}</td>
         <td>{{country.capital}}</td>
         <td>{{country.population | number}}</td>
-        <td><a href="#">Ver mas...</a></td>
+        <td>
+          <a [routerLink]="['/countries/by', country.cca3]" >Ver mas...</a>
+        </td>
       </tr>
     </tbody>
   </table>

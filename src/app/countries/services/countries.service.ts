@@ -3,7 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, catchError, map, of, tap } from 'rxjs';
 import { Country } from '../interfaces/country.interface';
 
-// NOTE - Inportant! HttpClient para este servicio es necesario tenerlo importado su modulo en app.module.ts
+// NOTE - Inportant!
+// Para este servicio HttpClient es necesario tenerlo importado el modulo en app.module.ts
 
 @Injectable({ providedIn: 'root' })
 export class CountriesService {
@@ -11,6 +12,19 @@ export class CountriesService {
   private apiUrl: string = 'https://restcountries.com/v3.1';
 
   constructor(private httpClient: HttpClient) { }
+
+  searchByAlphaCode(code: string): Observable<Country | null> {
+
+    // https://restcountries.com/v3.1/alpha/col
+    const url = `${this.apiUrl}/alpha/${code}`
+    return this.httpClient.get<Country[]>(url)
+    .pipe(
+      map(countries => countries.length > 0 ? countries[0] : null),
+      catchError(error => of(null))
+    )
+  }
+
+
 
   searchCapital(term: string): Observable<Country[]> {
 
